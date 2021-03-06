@@ -1,0 +1,23 @@
+<h2>Michael Tseng's Profile for Programming Tutorials</h2>
+<ul class="posts">
+  <li
+    *ngFor="let post of posts"
+    [class.selected]="post === selectedPost"
+    (click)="onSelect(post)"
+  >
+    <span class="badge">{{post.id}}</span> {{post.title}}
+  </li>
+</ul>
+
+<div *ngIf="selectedPost">
+  <h2>{{selectedPost.title | uppercase}}</h2>
+  <div><span>Post id: </span>{{selectedPost.id}}</div>
+  <div>
+    <br />
+    <label for="post-text">{{selectedPost.text}}</label>
+  </div>
+  <div>
+    <button id="comment">Comment</button>
+    <button id="report">Snitch</button>
+  </div>
+</div>
